@@ -22,6 +22,10 @@ html, body {
   background: linear-gradient( #6cf, #eee );
   font-family: 'MuseoSans500', helvetica, arial, sans-serif;
 }
+
+body h1{
+text-align: center;
+}
 #cards, h1 {
   width: 440px;
   overflow: auto;
@@ -152,6 +156,5 @@ aside {
 #timer{
 display:inline-block;}
 #elapsed-time{
-	width:200px;
 	margin 0 auto;
 }
