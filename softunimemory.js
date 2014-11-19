@@ -4,10 +4,10 @@ var old = null,
     allsolved = 0,
     moves = 0,
     delay = 1500,
-<<<<<<< HEAD
     audio;
 	
 var score=0,highscore=0;
+
 
 function Add_Score()
 {
@@ -20,10 +20,6 @@ function Dec_Score()
 	//to do: time dependant and penalties for multiple wrong moves
 	score--;
 }
-=======
-    audio
-    score = 0;;
->>>>>>> origin/master
 
 function init(){
 
@@ -53,26 +49,17 @@ function init(){
            '</div></section>';
   }
   cards.innerHTML = out + '<aside>Moves: '+
-<<<<<<< HEAD
                           '<span id="moves">0</span></aside>';
 	
   cards.innerHTML += '<aside>Score: '+
                           '<span id="score">0</span></aside>';
 						  
-=======
-                          '<span id="moves">0</span></aside>' +
-                          '<aside>Score: '+
-                          '<span id="score">0</span></aside>';
-
-
->>>>>>> origin/master
   cards.innerHTML += '<aside id="win"><p>You found all trainers!&hellip; - resetting</p>'+
                      '</aside>';
   cards.addEventListener( 'click', checkcard, false );
   cards.addEventListener( 'touchmove', checkcard, false );
   scoreelm = document.querySelector('#score');
   moveelm = document.querySelector( '#moves' );
-    scoreelm = document.querySelector( '#score ')
   document.body.className = document.body.className.replace( 'win', '' );
 
   if ( document.body.style.WebkitPerspective === undefined && 
@@ -97,8 +84,7 @@ function checkcard( e ) {
 
   if ( !old ) {
     old = mom;
-      score-=5;
-      mom.className += ' flipped';
+    mom.className += ' flipped';
   } else {
     mom.className += ' flipped';
   }
@@ -107,15 +93,10 @@ function checkcard( e ) {
     if ( old.lastChild.className === mom.lastChild.className ) {
       old.solved = mom.solved = true;
       old = null;
-      score+=20;
       allsolved++;
       audio[1].play();
-<<<<<<< HEAD
 	  Add_Score();
       if( allsolved === 6 ) { 
-=======
-      if( allsolved === 6 ) {
->>>>>>> origin/master
         win(); 
       }
     } else {
@@ -126,11 +107,7 @@ function checkcard( e ) {
     }
     moves++;
     moveelm.innerHTML = moves;
-<<<<<<< HEAD
 	scoreelm.innerHTML = score;
-=======
-      scoreelm.innerHTML = score;
->>>>>>> origin/master
   }
 
 }
@@ -179,7 +156,7 @@ function checkcard( e ) {
 		seconds=0;
 		minutes=0;
 		currentSpeed=1;
-		//timer.run();
+		timer.run();
 	  },
 	  stop: function()
 	  {
