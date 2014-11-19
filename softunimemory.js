@@ -28,7 +28,10 @@ function init(){
            '</div></section>';
   }
   cards.innerHTML = out + '<aside>Moves: '+
-                          '<span id="moves">0</span></aside>';
+                          '<span id="moves">0</span></aside>' +
+                          '<aside>Score: '+
+                          '<span id="score">0</span></aside>';
+
 
   cards.innerHTML += '<aside id="win"><p>You found all trainers!&hellip; - resetting</p>'+
                      '</aside>';
