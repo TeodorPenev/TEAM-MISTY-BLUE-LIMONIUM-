@@ -48,11 +48,15 @@ function init(){
   }
   cards.innerHTML = out + '<aside>Moves: '+
                           '<span id="moves">0</span></aside>';
-
+	
+  cards.innerHTML += '<aside>Score: '+
+                          '<span id="score">0</span></aside>';
+						  
   cards.innerHTML += '<aside id="win"><p>You found all trainers!&hellip; - resetting</p>'+
                      '</aside>';
   cards.addEventListener( 'click', checkcard, false );
   cards.addEventListener( 'touchmove', checkcard, false );
+  scoreelm = document.querySelector('#score');
   moveelm = document.querySelector( '#moves' );
   document.body.className = document.body.className.replace( 'win', '' );
 
@@ -96,10 +100,12 @@ function checkcard( e ) {
     } else {
       audio[0].play();
       clickable = false;
+	  Dec_Score();
       x = setTimeout( clear, delay );
     }
     moves++;
     moveelm.innerHTML = moves;
+	scoreelm.innerHTML = score;
   }
 
 }
