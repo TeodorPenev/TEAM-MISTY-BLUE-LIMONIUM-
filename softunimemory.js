@@ -5,9 +5,28 @@ var old = null,
     moves = 0,
     delay = 1500,
     audio;
+	
+var score=0,highscore=0;
+
+function Add_Score()
+{
+	//to do: add score dependant on time
+	score+=10;
+}
+
+function Dec_Score()
+{
+	//to do: time dependant and penalties for multiple wrong moves
+	score--;
+}
 
 function init(){
+
+  // score related
+  // to do: highscores
+  score=0;
   moves = 0;
+  
   var trainers = 't1-t2-t3-t4-t5-t6'.split( '-' ),
       ar = trainers.concat( trainers ),
       sa = [],
@@ -70,6 +89,7 @@ function checkcard( e ) {
       old = null;
       allsolved++;
       audio[1].play();
+	  Add_Score();
       if( allsolved === 6 ) { 
         win(); 
       }
