@@ -64,6 +64,7 @@ function checkcard( e ) {
 
   if ( !old ) {
     old = mom;
+      score-=5;
       mom.className += ' flipped';
   } else {
     mom.className += ' flipped';
