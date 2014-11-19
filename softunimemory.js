@@ -26,6 +26,7 @@ function init(){
   // score related
   // to do: highscores
   timer.restart();
+  timer.stop();
   score=0;
   moves = 0;
   
@@ -81,6 +82,8 @@ function checkcard( e ) {
   if ( e.target.tagName !== 'FIGURE' ) { return; }
   mom = e.target.parentNode;
   if ( mom.solved ) { return; }
+  
+  timer.setSpeed(1);
 
   if ( !old ) {
     old = mom;
@@ -155,7 +158,6 @@ function checkcard( e ) {
 	  restart: function(){
 		seconds=0;
 		minutes=0;
-		currentSpeed=1;
 		timer.run();
 	  },
 	  stop: function()
@@ -190,6 +192,6 @@ function clear() {
 
 }
 
-window.addEventListener ( 'load', init, false );
-window.onload = function(){timer.start(1, 'timer');};
+//window.addEventListener ( 'load', init, false );
+window.onload = function(){ timer.start(0, 'timer'); init();};
 
