@@ -4,7 +4,8 @@ var old = null,
     allsolved = 0,
     moves = 0,
     delay = 1500,
-    audio;
+    audio
+    score = 0;;
 
 function init(){
   moves = 0;
@@ -38,6 +39,7 @@ function init(){
   cards.addEventListener( 'click', checkcard, false );
   cards.addEventListener( 'touchmove', checkcard, false );
   moveelm = document.querySelector( '#moves' );
+    scoreelm = document.querySelector( '#score ')
   document.body.className = document.body.className.replace( 'win', '' );
 
   if ( document.body.style.WebkitPerspective === undefined && 
@@ -62,7 +64,7 @@ function checkcard( e ) {
 
   if ( !old ) {
     old = mom;
-    mom.className += ' flipped';
+      mom.className += ' flipped';
   } else {
     mom.className += ' flipped';
   }
@@ -71,9 +73,10 @@ function checkcard( e ) {
     if ( old.lastChild.className === mom.lastChild.className ) {
       old.solved = mom.solved = true;
       old = null;
+      score+=20;
       allsolved++;
       audio[1].play();
-      if( allsolved === 6 ) { 
+      if( allsolved === 6 ) {
         win(); 
       }
     } else {
@@ -83,6 +86,7 @@ function checkcard( e ) {
     }
     moves++;
     moveelm.innerHTML = moves;
+      scoreelm.innerHTML = score;
   }
 
 }
