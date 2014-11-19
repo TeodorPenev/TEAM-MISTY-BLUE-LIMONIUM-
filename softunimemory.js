@@ -24,6 +24,7 @@ function init(){
 
   // score related
   // to do: highscores
+  timer.restart();
   score=0;
   moves = 0;
   
@@ -149,11 +150,23 @@ function checkcard( e ) {
         currentSpeed = +speed;
         timer.run();
       }
+	  ,
+	  restart: function(){
+		seconds=0;
+		minutes=0;
+		currentSpeed=1;
+		//timer.run();
+	  },
+	  stop: function()
+	  {
+		currentSpeed=0;
+	  }
     }
 
 }());
 function win() {
 
+  timer.stop();
   document.body.className += ' win';
   audio[2].play();
   setTimeout( function() {
