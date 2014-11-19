@@ -12,13 +12,15 @@ var score=0,highscore=0;
 function Add_Score()
 {
 	//to do: add score dependant on time
-	score+=10;
+	score+=100;
+	score-=timer.getTime();
 }
 
 function Dec_Score()
 {
 	//to do: time dependant and penalties for multiple wrong moves
-	score--;
+	score-=5;
+	if(score<0) score=0;
 }
 
 function init(){
@@ -163,6 +165,10 @@ function checkcard( e ) {
 	  stop: function()
 	  {
 		currentSpeed=0;
+	  },
+	  getTime: function()
+	  {
+		return seconds+minutes*60;
 	  }
     }
 
