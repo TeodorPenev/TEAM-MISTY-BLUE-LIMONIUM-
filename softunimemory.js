@@ -31,6 +31,7 @@ function init(){
   timer.stop();
   score=0;
   moves = 0;
+  allsolved=0;
   
   var trainers = 't1-t2-t3-t4-t5-t6'.split( '-' ),
       ar = trainers.concat( trainers ),
@@ -58,6 +59,7 @@ function init(){
                           '<span id="score">0</span></aside>';
 						  
   cards.innerHTML += '<aside id="win"><p>You found all trainers!&hellip; - Your score: '+'<span id="finalScore">0</span></p>'+
+					'<p>High score: <span id="finalHighScore">0</span></p>'+'<p></p>'+
                      '</aside>';
   cards.addEventListener( 'click', checkcard, false );
   cards.addEventListener( 'touchmove', checkcard, false );
@@ -176,8 +178,13 @@ function checkcard( e ) {
 function win() {
 
   timer.stop();
+  
+  if(score>highscore) highscore=score;
   finSc=document.querySelector( '#finalScore' );
   finSc.innerHTML=score;
+  finHiSc=document.querySelector( '#finalHighScore' );
+  finHiSc.innerHTML=highscore;
+  
   document.body.className += ' win';
   audio[2].play();
   setTimeout( function() {
