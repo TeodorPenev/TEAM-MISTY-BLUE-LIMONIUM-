@@ -57,7 +57,7 @@ function init(){
   cards.innerHTML += '<aside>Score: '+
                           '<span id="score">0</span></aside>';
 						  
-  cards.innerHTML += '<aside id="win"><p>You found all trainers!&hellip; - resetting</p>'+
+  cards.innerHTML += '<aside id="win"><p>You found all trainers!&hellip; - Your score: '+'<span id="finalScore">0</span></p>'+
                      '</aside>';
   cards.addEventListener( 'click', checkcard, false );
   cards.addEventListener( 'touchmove', checkcard, false );
@@ -176,6 +176,8 @@ function checkcard( e ) {
 function win() {
 
   timer.stop();
+  finSc=document.querySelector( '#finalScore' );
+  finSc.innerHTML=score;
   document.body.className += ' win';
   audio[2].play();
   setTimeout( function() {
